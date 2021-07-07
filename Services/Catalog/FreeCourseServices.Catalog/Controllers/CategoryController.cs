@@ -12,7 +12,7 @@ namespace FreeCourseServices.Catalog.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    internal class CategoryController : CustomBaseController
+    public class CategoryController : CustomBaseController
     {
         private readonly ICategoryService _categoryService;
 
@@ -21,7 +21,7 @@ namespace FreeCourseServices.Catalog.Controllers
             _categoryService = categoryService;
         }
 
-
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var categories = await _categoryService.GetAllAsync();
